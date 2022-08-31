@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>React Import External JSON</title>
+	
+	<style>
+		ol {
+			font-size: 35px;
+      border: 10px solid #041E42;
+      background-color: #869397;
+      border-radius: 5px ;
+      text-align: center;
+      
+		}
+    body{
+      background-color:   #003278;  
+      background_image: /images/DallasCowboysLogo.jpeg;
+    }
+    .title{
+      font-size: 35px;
+      border: 10px solid #041E42;
+      background-color: #869397;
+      border-radius: 5px ;
+      text-align: center;
+    }
+		li {
+      color: #869397;
+      font-size: 20pt;
+			display: inline-block;
+      padding: 20px;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://unpkg.com/react/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom/umd/react-dom.development.js" crossorigin></script>
+  
+	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+
+  <h1 class="title">North Texas Teams</h1>
+  
+	<div id="myApp"></div>
+ 
+  <img id="logos" src="/images/Dallas-Cowboys-Logo.jpeg" alt= "" >
+  
+  <script type="text/babel">
+  "use strict";
+
+  
+  
+    function ProjectList(props) {
+      
+      return <div>
+          <ol>
+            {
+              
+              props.list.map( 
+                
+                (item,index) => (
+                  <li key={index}>
+                    <a href={item.link}>
+                      {item.player}
+                    </a>
+                  </li>
+                )
+              )
+            }
+          </ol>
+        </div>;
+    }
+
+  
+  $.getJSON("anything", function(jsonFromJquery) {
+    
+    const myRoot = ReactDOM.createRoot(document.getElementById('myApp'));
+    
+    myRoot.render(
+      <ProjectList list={jsonFromJquery} />
+    );
+  }
+  );
+  </script>
+
+  <img id="logos" src="/images/Dallas-Cowboys-Logo.jpeg" alt= "" >
+</body>
+
+</html>
