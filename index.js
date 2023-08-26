@@ -36,9 +36,3 @@ server.listen(
   }
 );
 
-// non-arrow function syntax of same code as lines 51-56 above
-/*
-server.listen(port, host, function() {
-  console.log(`Server is running on http://${host}:${port}`);
-});
-*/
